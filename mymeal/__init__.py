@@ -23,11 +23,13 @@ from mymeal.recipes.routes import recipes
 from mymeal.ingredients.routes import ingredients
 from mymeal.main.routes import main
 from mymeal.errors.handlers import errors
+from mymeal.weekly.routes import weekly
 
 app.register_blueprint(users)
 app.register_blueprint(recipes)
 app.register_blueprint(ingredients)
 app.register_blueprint(main)
 app.register_blueprint(errors)
+app.register_blueprint(weekly)
 
 

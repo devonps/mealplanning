@@ -1,0 +1,131 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <article class="media content-section">
+       <table class="table table-bordered table-striped">
+           <thead>
+           <tr class="table-primary">
+               <th scope="col">Day</th>
+               <th scope="col">Planned Meal</th>
+           </tr>
+           </thead>
+           <tbody>
+                <tr>
+                  <th scope="row">Monday</th>
+                  <td>Southern Fried Chicken</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tuesday</th>
+                  <td>Lamb Balti</td>
+                </tr>
+                <tr>
+                  <th scope="row">Wednesday</th>
+                  <td>
+                      <select class="custom-select">
+                          <option selected>Select Meal</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Thursday</th>
+                  <td>
+                      <select class="custom-select">
+                          <option selected>Select Meal</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Friday</th>
+                  <td>Steak and Mushroom pie</td>
+                </tr>
+                <tr>
+                  <th scope="row">Saturday</th>
+                  <td>Steak and Mushroom pie</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sunday</th>
+                  <td>@teak and Mushroom pie</td>
+                </tr>
+            </tbody>
+       </table>
+    </article>
+    <article class="media content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                  <h2 align="center">Ingredients List</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                      <table class="table table-striped">
+                        <thead>
+                            <tr class="table-primary">
+                               <th scope="col">Butchers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="col-sm">
+                      <table class="table table-striped">
+                        <thead>
+                            <tr class="table-primary">
+                               <th scope="col">Greengrocers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <div class="col-sm">
+                      <table class="table table-striped">
+                        <thead>
+                            <tr class="table-primary table-bordered">
+                               <th scope="col">Supermarket</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                            <tr>
+                              <td>Southern Fried Chicken</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="clearfix">
+        <a class="btn btn-primary btn-block" href="#">Create Ingredients Shopping List</a>
+    </div>
+{% endblock content %}
