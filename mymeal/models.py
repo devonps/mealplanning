@@ -43,6 +43,8 @@ class Recipe(db.Model):
     recipe_type = db.Column(db.String(15), nullable=False)
     ingredients = db.relationship('Ingredient', backref='meal', lazy=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    recipe_book = db.Column(db.String(100))
+    recipe_book_page = db.Column(db.Integer, default='01')
 
     def __repr__(self):
         return f"Recipe('{self.title}', '{self.description}', '{self.date_posted}')"
