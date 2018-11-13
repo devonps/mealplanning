@@ -14,7 +14,22 @@
             </div>
             {% endif %}
         </div>
-        <h2 class="article-title">{{ recipe.title }}</h2>
+        <div class="container">
+              <div class="row">
+                <div class="col-md-auto">
+                  <h2 class="article-title">{{ recipe.title }}</h2>
+                </div>
+                {% if recipe.recipe_book %}
+                  <div class="col">
+                    <span class="text-muted align-middle pt-2">
+                        {{ recipe.recipe_book }} book on page {{ recipe.recipe_book_page }}
+                    </span>
+                  </div>
+                {% endif %}
+
+              </div>
+        </div>
+
         <p class="article-content">{{ recipe.description }}</p>
         <hr/>
           {% if count > 0 %}

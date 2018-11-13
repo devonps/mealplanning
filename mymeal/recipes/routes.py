@@ -13,7 +13,8 @@ def new_recipe():
     form = RecipeForm()
     if form.validate_on_submit():
         recipe = Recipe(title=form.title.data, serves=form.serves.data, description=form.description.data,
-                        recipe_type = form.recipe_type.data,author=current_user)
+                        recipe_type = form.recipe_type.data,author=current_user,
+                        recipe_book=form.recipe_book.data, recipe_book_page=form.recipe_book_page.data)
         db.session.add(recipe)
         db.session.commit()
         flash('Your recipe has been added!', 'success')
@@ -48,6 +49,8 @@ def update_recipe(recipe_id):
         recipe.serves = form.serves.data
         recipe.description = form.description.data
         recipe.recipe_type = form.recipe_type.data
+        recipe.recipe_book = form.recipe_book.data
+        recipe.recipe_book_page = form.recipe_book_page.data
         db.session.commit()
         flash('Your recipe has been updated!','success')
         return redirect(url_for('recipes.recipe', recipe_id=recipe.id))
@@ -56,6 +59,8 @@ def update_recipe(recipe_id):
         form.serves.data = recipe.serves
         form.description.data = recipe.description
         form.recipe_type.data = recipe.recipe_type
+        form.recipe_book.data = recipe.recipe_book
+        form.recipe_book_page.data = recipe.recipe_book_page
     return render_template('create_recipe.html', title='Update Recipe', legend='Update Recipe', recipe=recipe, form=form)
 
 
