@@ -1,131 +1,51 @@
 {% extends 'layout.html' %}
 {% block content %}
-    <article class="media content-section">
-       <table class="table table-bordered table-striped">
-           <thead>
-           <tr class="table-primary">
-               <th scope="col">Day</th>
-               <th scope="col">Planned Meal</th>
-           </tr>
-           </thead>
-           <tbody>
-                <tr>
-                  <th scope="row">Monday</th>
-                  <td>Southern Fried Chicken</td>
-                </tr>
-                <tr>
-                  <th scope="row">Tuesday</th>
-                  <td>Lamb Balti</td>
-                </tr>
-                <tr>
-                  <th scope="row">Wednesday</th>
-                  <td>
-                      <select class="custom-select">
-                          <option selected>Select Meal</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Thursday</th>
-                  <td>
-                      <select class="custom-select">
-                          <option selected>Select Meal</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">Friday</th>
-                  <td>Steak and Mushroom pie</td>
-                </tr>
-                <tr>
-                  <th scope="row">Saturday</th>
-                  <td>Steak and Mushroom pie</td>
-                </tr>
-                <tr>
-                  <th scope="row">Sunday</th>
-                  <td>@teak and Mushroom pie</td>
-                </tr>
-            </tbody>
-       </table>
-    </article>
-    <article class="media content-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                  <h2 align="center">Ingredients List</h2>
-                </div>
+    <div class="content-section">
+            <h1>Weekly Planning</h1>
+        <form method="post" action="">
+            {{ form.hidden_tag() }}
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                   <tr class="table-primary">
+                       <th scope="col">Day</th>
+                       <th scope="col">Planned Meal</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <th scope="row">{{ form.saturdaySelect.label(class="form-control-label form-control-lg") }}</th>
+                      <td>{{ form.saturdaySelect(class="form-control form-control-lg") }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">{{ form.sundaySelect.label(class="form-control-label form-control-lg") }}</th>
+                      <td>{{ form.sundaySelect(class="form-control form-control-lg") }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">{{ form.mondaySelect.label(class="form-control-label form-control-lg") }}</th>
+                      <td>{{ form.mondaySelect(class="form-control form-control-lg") }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">{{ form.tuesdaySelect.label(class="form-control-label form-control-lg") }}</th>
+                      <td>{{ form.tuesdaySelect(class="form-control form-control-lg") }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">{{ form.wednesdaySelect.label(class="form-control-label form-control-lg") }}</th>
+                      <td>{{ form.wednesdaySelect(class="form-control form-control-lg") }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">{{ form.thursdaySelect.label(class="form-control-label form-control-lg") }}</th>
+                      <td>{{ form.thursdaySelect(class="form-control form-control-lg") }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">{{ form.fridaySelect.label(class="form-control-label form-control-lg") }}</th>
+                      <td>{{ form.fridaySelect(class="form-control form-control-lg") }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
             </div>
-            <div class="row">
-                <div class="col-sm">
-                      <table class="table table-striped">
-                        <thead>
-                            <tr class="table-primary">
-                               <th scope="col">Butchers</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                        </tbody>
-                      </table>
-                </div>
-                <div class="col-sm">
-                      <table class="table table-striped">
-                        <thead>
-                            <tr class="table-primary">
-                               <th scope="col">Greengrocers</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                        </tbody>
-                      </table>
-                </div>
-                <div class="col-sm">
-                      <table class="table table-striped">
-                        <thead>
-                            <tr class="table-primary table-bordered">
-                               <th scope="col">Supermarket</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                            <tr>
-                              <td>Southern Fried Chicken</td>
-                            </tr>
-                        </tbody>
-                      </table>
-                </div>
-            </div>
-        </div>
-    </article>
-    <div class="clearfix">
-        <a class="btn btn-primary btn-block" href="#">Create Ingredients Shopping List</a>
+        </form>
     </div>
 {% endblock content %}
