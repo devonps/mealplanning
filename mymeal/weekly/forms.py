@@ -22,10 +22,10 @@ class ThisWeekForm(FlaskForm):
 
     def __init__(self, *args, **kwargs):
         super(ThisWeekForm, self).__init__(*args, **kwargs)
-        self.mondaySelect.choices = [(recipe.id,recipe.title) for recipe in Recipe.query.all()]
-        self.tuesdaySelect.choices = [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
-        self.wednesdaySelect.choices = [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
-        self.thursdaySelect.choices = [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
-        self.fridaySelect.choices = [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
-        self.saturdaySelect.choices = [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
-        self.sundaySelect.choices = [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
+        self.mondaySelect.choices = [(0, '- Select Meal -')] + [(recipe.id,recipe.title) for recipe in Recipe.query.all()]
+        self.tuesdaySelect.choices = [(0, '- Select Meal -')] + [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
+        self.wednesdaySelect.choices = [(0, '- Select Meal -')] + [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
+        self.thursdaySelect.choices = [(0, '- Select Meal -')] + [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
+        self.fridaySelect.choices = [(0, '- Select Meal -')] + [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
+        self.saturdaySelect.choices = [(0, '- Select Meal -')] + [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
+        self.sundaySelect.choices = [(0, '- Select Meal -')] + [(recipe.id, recipe.title) for recipe in Recipe.query.all()]
