@@ -49,6 +49,9 @@ class Recipe(db.Model):
     def __repr__(self):
         return f"Recipe('{self.title}', '{self.description}', '{self.date_posted}')"
 
+    def as_dict(self):
+        return {'title': self.title}
+
 
 class Ingredient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
