@@ -35,6 +35,7 @@
                     <a class="nav-item nav-link" href="{{ url_for('recipes.new_recipe') }}">Create Recipe</a>
                     <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
                     <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
+                    <img class="rounded-circle  article-img" src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}">
                 {% else %}
                   <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
                   <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>
@@ -67,22 +68,22 @@
                   <tbody>
                     <tr>
                       <td>
-                          <a class="nav-item nav-link" href="{{ url_for('weekly.view_this_week') }}">Weekly Planner</a>
+                          <a class="nav-item nav-link" href="{{ url_for('weekly.new_week') }}">Weekly Planner</a>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                          <a class="nav-item nav-link" href="{{ url_for('weekly.view_this_week') }}">Latest Meals</a>
+                          <a class="nav-item nav-link disabled" href="#">Latest Meals</a>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                          <a class="nav-item nav-link" href="{{ url_for('weekly.view_this_week') }}">Announcements</a>
+                          <a class="nav-item nav-link disabled" href="#">Announcements</a>
                       </td>
                     </tr>
                     <tr>
                       <td>
-                          <a class="nav-item nav-link" href="{{ url_for('weekly.view_this_week') }}">Calendar</a>
+                          <a class="nav-item nav-link disabled" href="#">Calendar</a>
                       </td>
                     </tr>
                   </tbody>
