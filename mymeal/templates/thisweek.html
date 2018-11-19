@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {% block content %}
     <div class="content-section">
-            <h1>Weekly Planning</h1>
+        <p class="h2  text-center">Weekly Planning</p>
         <form method="post" action="">
             {{ form.hidden_tag() }}
 
@@ -44,7 +44,7 @@
                 </tbody>
             </table>
             <div class="form-group">
-                {{ form.submit(class="btn btn-outline-info") }}
+                {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
             </div>
         </form>
     </div>
