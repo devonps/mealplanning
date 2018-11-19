@@ -16,17 +16,11 @@
         </div>
         <div class="container">
               <div class="row">
-                <div class="col-md-auto">
-                  <h2 class="article-title">{{ recipe.title }}</h2>
-                </div>
-                {% if recipe.recipe_book %}
-                  <div class="col">
-                    <span class="text-muted align-middle pt-2">
+                  <h2>{{ recipe.title }}
+                      <small class="text-muted">
                         {{ recipe.recipe_book }} book on page {{ recipe.recipe_book_page }}
-                    </span>
-                  </div>
-                {% endif %}
-
+                      </small>
+                  </h2>
               </div>
         </div>
 
