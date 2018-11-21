@@ -31,3 +31,7 @@ class ThisWeekForm(FlaskForm):
         self.fridaySelect.choices = [(0, default_message)] + [(recipe.id, recipe.title) for recipe in recipes]
         self.saturdaySelect.choices = [(0, default_message)] + [(recipe.id, recipe.title) for recipe in recipes]
         self.sundaySelect.choices = [(0, default_message)] + [(recipe.id, recipe.title) for recipe in recipes]
+
+
+class ThisWeeksIngredients(FlaskForm):
+    submit = SubmitField('Create Ingredients Email')

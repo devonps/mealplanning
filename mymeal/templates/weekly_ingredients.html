@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% block content %}
+        <div class="content-section">
+            <p class="h2  text-center">Ingredients List</p>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr class="table-warning text-center">
+                          <th scope="col">Butchers</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for b in butchers %}
+                        <tr>
+                            <th scope="row">{{ b.quantity }} {{ b.name }}</th>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                </div>
+                <div class="col-sm">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr class="table-warning text-center">
+                          <th scope="col">Greengrocers</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for g in greengrocers %}
+                        <tr>
+                            <th scope="row">{{ g.quantity }} {{ g.name }}</th>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                </div>
+                <div class="col-sm">
+                    <table class="table table-striped table-bordered">
+                      <thead>
+                        <tr class="table-warning text-center">
+                          <th scope="col">Supermarket</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for s in supermarket %}
+                        <tr>
+                            <th scope="row">{{ s.quantity }} {{ s.name }}</th>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+            <form method="post" action="">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-primary btn-lg btn-block") }}
+                </div>
+            </form>
+        </div>
+{% endblock content %}
