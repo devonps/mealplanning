@@ -62,3 +62,5 @@ class Ingredient(db.Model):
 
     def __repr__(self):
         return f"ingredient('{self.name}', '{self.quantity}', '{self.purchased_at}')"
+
+
