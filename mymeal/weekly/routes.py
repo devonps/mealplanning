@@ -3,7 +3,7 @@ from flask_login import login_required
 from mymeal.weekly.forms import ThisWeekForm, ThisWeeksIngredients
 from mymeal.models import Ingredient
 
-from sqlalchemy import and_, desc, asc
+from sqlalchemy import and_, asc
 
 weekly = Blueprint('weekly', __name__)
 

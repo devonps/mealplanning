@@ -64,3 +64,15 @@ class Ingredient(db.Model):
         return f"ingredient('{self.name}', '{self.quantity}', '{self.purchased_at}')"
 
 
+class Mealplan(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.Integer, nullable=False)
+    week = db.Column(db.Integer, nullable=False)
+    day_of_meal = db.Column(db.String(10), nullable=False)
+    meal_id = db.Column(db.Integer, nullable=False)
+    week_description = db.Column(db.String(50), nullable=False)
+    date_week_plan_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self):
+        return f"WeekPlan('{self.week}', '{self.week_description}', '{self.date_week_plan_created}')"
+
