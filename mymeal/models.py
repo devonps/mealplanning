@@ -16,6 +16,8 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.png')
     password = db.Column(db.String(60), nullable=False)
     recipes = db.relationship('Recipe', backref='author', lazy=True)
+    weekly_meal_plan = db.relationship('Mealplan', backref='creator', lazy=True)
+    meal_plan_count = db.Column(db.Integer, default='0', nullable=False)
 
     def get_reset_token(self, expires_secs=1800):
         s = Serializer(app.config['SECRET_KEY'], expires_secs)
@@ -66,12 +68,12 @@ class Ingredient(db.Model):
 
 class Mealplan(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.Integer, nullable=False)
     week = db.Column(db.Integer, nullable=False)
     day_of_meal = db.Column(db.String(10), nullable=False)
     meal_id = db.Column(db.Integer, nullable=False)
     week_description = db.Column(db.String(50), nullable=False)
     date_week_plan_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
         return f"WeekPlan('{self.week}', '{self.week_description}', '{self.date_week_plan_created}')"
