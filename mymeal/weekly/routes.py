@@ -1,8 +1,10 @@
-from flask import render_template, Blueprint, request
+from flask import render_template, Blueprint, request, redirect, url_for
 from flask_login import login_required, current_user
-from mymeal.weekly.forms import ThisWeekForm
-from mymeal.models import Mealplan
+from mymeal.weekly.forms import ThisWeekForm, ThisWeeksIngredients
+from mymeal.models import Mealplan, Ingredient
 from mymeal import db
+from sqlalchemy import and_
+
 
 weekly = Blueprint('weekly', __name__)
 
@@ -56,12 +58,28 @@ def new_week():
         if dirty_table:
             setattr(current_user, 'meal_plan_count', week)
             db.session.commit()
-
+            return redirect(url_for('weekly.week_ingredients'))
     return render_template('thisweek.html', title='This Week', form=form)
 
 
 @weekly.route('/week/ingredients', methods=['GET', 'POST'])
 @login_required
 def week_ingredients():
+    form = ThisWeeksIngredients()
+
+    if form.validate_on_submit():
+        return redirect(url_for('main.home'))
+    else:
+
+        meals_this_week = Mealplan.query.filter_by(user_id=current_user.id, week=current_user.meal_plan_count)
+        supermarket = ''
+        greengrocers = ''
+        butchers = ''
+
+        for meals in meals_this_week:
+            supermarket = Ingredient.query.filter(and_(Ingredient.recipe_id == meals.meal_id, Ingredient.purchased_at == 'supermarket'))
+            greengrocers = Ingredient.query.filter(and_(Ingredient.recipe_id == meals.meal_id, Ingredient.purchased_at == 'greengrocer'))
+            butchers = Ingredient.query.filter(and_(Ingredient.recipe_id == meals.meal_id, Ingredient.purchased_at == 'butcher'))
+
     return render_template('weekly_ingredients.html', title='Ingredients', form=form, supermarket=supermarket,
-                                   butchers=butchers, greengrocers=greengrocers)
+                               butchers=butchers, greengrocers=greengrocers)
