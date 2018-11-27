@@ -71,15 +71,21 @@ def week_ingredients():
         return redirect(url_for('main.home'))
     else:
 
-        meals_this_week = Mealplan.query.filter_by(user_id=current_user.id, week=current_user.meal_plan_count)
-        supermarket = ''
-        greengrocers = ''
-        butchers = ''
+        meals_this_week = Mealplan.query.filter_by(user_id=current_user.id, week=current_user.meal_plan_count).all()
+        supermarket = []
+        greengrocers = []
+        butchers = []
 
         for meals in meals_this_week:
-            supermarket = Ingredient.query.filter(and_(Ingredient.recipe_id == meals.meal_id, Ingredient.purchased_at == 'supermarket'))
-            greengrocers = Ingredient.query.filter(and_(Ingredient.recipe_id == meals.meal_id, Ingredient.purchased_at == 'greengrocer'))
-            butchers = Ingredient.query.filter(and_(Ingredient.recipe_id == meals.meal_id, Ingredient.purchased_at == 'butcher'))
+            print (meals.week, meals.meal_id, meals.day_of_meal)
+            ingredients = Ingredient.query.filter_by(recipe_id=meals.meal_id)
+            for ii in ingredients:
+                print (ii.quantity, ii.name, ii.purchased_at)
+                if ii.purchased_at == 'supermarket':
+                    supermarket.append(ii.quantity + ' ' + ii.name)
+                if ii.purchased_at == 'greengrocer':
+                    greengrocers.append(ii.quantity + ' ' + ii.name)
+                if ii.purchased_at == 'butchers':
+                    butchers.append(ii.quantity + ' ' + ii.name)
 
-    return render_template('weekly_ingredients.html', title='Ingredients', form=form, supermarket=supermarket,
-                               butchers=butchers, greengrocers=greengrocers)
+    return render_template('weekly_ingredients.html', title='Ingredients', form=form, supermarket=supermarket, butchers=butchers, greengrocers=greengrocers)
