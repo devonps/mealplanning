@@ -34,4 +34,4 @@ class ThisWeekForm(FlaskForm):
 
 
 class ThisWeeksIngredients(FlaskForm):
-    submit = SubmitField('Create Ingredients Email')
+    submit = SubmitField('Home Page')

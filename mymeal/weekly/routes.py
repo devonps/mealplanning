@@ -3,7 +3,6 @@ from flask_login import login_required, current_user
 from mymeal.weekly.forms import ThisWeekForm, ThisWeeksIngredients
 from mymeal.models import Mealplan, Ingredient
 from mymeal import db
-from sqlalchemy import and_
 
 
 weekly = Blueprint('weekly', __name__)
@@ -14,7 +13,6 @@ weekly = Blueprint('weekly', __name__)
 def new_week():
     form = ThisWeekForm()
     if request.method == 'POST':
-        # write out week choices to Mealplan table
         week = current_user.meal_plan_count + 1
         week_description = 'week ' + str(week)
         dirty_table = False
@@ -77,10 +75,8 @@ def week_ingredients():
         butchers = []
 
         for meals in meals_this_week:
-            print (meals.week, meals.meal_id, meals.day_of_meal)
             ingredients = Ingredient.query.filter_by(recipe_id=meals.meal_id)
             for ii in ingredients:
-                print (ii.quantity, ii.name, ii.purchased_at)
                 if ii.purchased_at == 'supermarket':
                     supermarket.append(ii.quantity + ' ' + ii.name)
                 if ii.purchased_at == 'greengrocer':
